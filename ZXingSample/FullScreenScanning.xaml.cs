@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 using ZXing;
 using ZXing.Net.Mobile.Forms;
 
@@ -15,8 +18,19 @@ namespace ZXingSample
 		{
 			Device.BeginInvokeOnMainThread(async () =>
 			{
-				await DisplayAlert("Scanned result", result.Text, "OK");
-			});
+                IsScanning = false;
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri("http://192.168.0.15:5001/api/disposelist/item/add/")
+                };
+
+                var response = await client.PutAsync($"{result.Text}/nandre04", null);
+
+                await DisplayAlert(response.StatusCode.ToString(), result.Text, "OK");
+
+                await Task.Delay(3000);
+                IsScanning = true;
+            });
 		}
 
 		protected override void OnAppearing()

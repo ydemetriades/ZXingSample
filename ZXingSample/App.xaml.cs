@@ -11,13 +11,15 @@ namespace ZXingSample
 		{
 			InitializeComponent();
 
-			var mainPage = new TabbedPage();
-			mainPage.Children.Add(new FullScreenScanning());
-			mainPage.Children.Add(new PartialScreenScanning());
-			mainPage.Children.Add(new GenerateBarcodePage());
+            //var mainPage = new TabbedPage();
+            //mainPage.Children.Add(new FullScreenScanning());
+            //mainPage.Children.Add(new PartialScreenScanning());
+            //mainPage.Children.Add(new GenerateBarcodePage());
 
-			MainPage = mainPage;
-		}
+            //MainPage = mainPage;
+
+            MainPage = new FullScreenScanning();
+        }
 
 		protected override void OnStart()
 		{

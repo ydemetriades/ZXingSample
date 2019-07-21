@@ -13,8 +13,8 @@ namespace ZXingSample.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate(savedInstanceState);
-			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 			LoadApplication(new App());
 		}
 
