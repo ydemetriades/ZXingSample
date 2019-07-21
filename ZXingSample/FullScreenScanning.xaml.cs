@@ -21,7 +21,7 @@ namespace ZXingSample
                 IsScanning = false;
                 var client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://192.168.0.15:5001/api/disposelist/item/add/")
+                    BaseAddress = new Uri("http://192.168.0.15:32547/api/disposelist/item/add/")
                 };
 
                 var response = await client.PutAsync($"{result.Text}/nandre04", null);
